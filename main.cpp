@@ -10,16 +10,55 @@ void decimalToHex (int hash) {
     std::stringstream ss;
     ss << std::hex << hash;
     string res = (ss.str());
-    cout << "Generated hash: "<<res;
+    cout << res;
 }
 
-void hashFunction (string input, int sqrtNumArray[], int &hash) {
-    int specialNum = 4154234;
-    for (int i = 0; i < input.length(); i++) {
-        hash = hash ^ (input[i]);
-        hash = hash * specialNum;
+void hashFunction (string input, int sqrtNumArray[], int hash[], bool ifNull) {
+    int sum = 0, multiplySum=1, sumOfBoth=0;
+    if(ifNull) {
+        sum += 128;
+        multiplySum *= 128;
+        sumOfBoth = sumOfBoth + sum + multiplySum;
+
+        hash[0] = hash[0] ^ 128;
+        hash[1] = hash[1] ^ sum;
+        hash[2] = hash[2] ^ multiplySum;
+        hash[3] = hash[3] ^ sumOfBoth;
+
+        hash[0] = hash[0] * sqrtNumArray[0];
+        hash[1] = hash[1] * sqrtNumArray[sum%4+4];
+        hash[2] = hash[2] * sqrtNumArray[multiplySum%4+8];
+        hash[3] = hash[3] * sqrtNumArray[sumOfBoth%4+12];
+
         for(int ii = 0; ii < 4; ii++) {
-            hash = hash ^ sqrtNumArray[ii];
+            hash[0] = hash[0] ^ sqrtNumArray[ii];
+            hash[1] = hash[1] ^ sqrtNumArray[ii+4];
+            hash[2] = hash[2] ^ sqrtNumArray[ii+8];
+            hash[3] = hash[3] ^ sqrtNumArray[ii+12];
+        }
+    }
+    else {
+         for (int i = 0; i < input.length(); i++) {
+            sum += (int)input[i];
+            multiplySum *= ((int)input[i]);
+            sumOfBoth = sumOfBoth + sum + multiplySum;
+
+            hash[0] = hash[0] ^ (input[i]);
+            hash[1] = hash[1] ^ sum;
+            hash[2] = hash[2] ^ multiplySum;
+            hash[3] = hash[3] ^ sumOfBoth;
+
+            hash[0] = hash[0] * sqrtNumArray[((int)input[i])%4];
+            hash[1] = hash[1] * sqrtNumArray[sum%4+4];
+            hash[2] = hash[2] * sqrtNumArray[multiplySum%4+8];
+            hash[3] = hash[3] * sqrtNumArray[sumOfBoth%4+12];
+
+            for(int ii = 0; ii < 4; ii++) {
+                hash[0] = hash[0] ^ sqrtNumArray[ii];
+                hash[1] = hash[1] ^ sqrtNumArray[ii+4];
+                hash[2] = hash[2] ^ sqrtNumArray[ii+8];
+                hash[3] = hash[3] ^ sqrtNumArray[ii+12];
+            }
         }
     }
 }
@@ -27,22 +66,23 @@ void hashFunction (string input, int sqrtNumArray[], int &hash) {
 int main(int argc, char* argv[])
 {
     //Press 1 to the command line and enter data on your own or enter file name to read input from it
-    int hash = 1;
+    int hash[4] ={1, 2, 3, 4};
+    bool ifNull = false;
     string textFile, input;
     ifstream inFile;
     std::stringstream buffer;
     // prime numbers below 100
-    int primeNumbers[4] = {2, 17, 41, 59};
+    int primeNumbers[16] = {2, 17, 41, 59, 7, 31, 67, 19, 83, 11, 47, 71, 5, 23, 53, 41};
     // creating some numbers by sqrt prime numbers
-    float sqrtNum;
-    int sqrtNumArray[4];
-    for (int i=0; i<4; i++) {
-        sqrtNum = sqrt(primeNumbers[i])*100000000;
+    double sqrtNum;
+    int sqrtNumArray[16];
+    for (int i=0; i<16; i++) {
+        sqrtNum = sqrt(primeNumbers[i])*10000000;
         sqrtNumArray[i] = sqrtNum;
     }
     if (argv[1][0] == '1' && argc >= 3) {
         for(int j=2; j<argc; j++) {
-            hashFunction(argv[j], sqrtNumArray, hash);
+            hashFunction(argv[j], sqrtNumArray, hash, ifNull);
         }
     }
     else if (argv[1][0] != '1' && argc == 2) {
@@ -52,13 +92,19 @@ int main(int argc, char* argv[])
         buffer << inFile.rdbuf();
         while(!buffer.eof()) {
             buffer >> input;
-            hashFunction(input, sqrtNumArray, hash);
+            hashFunction(input, sqrtNumArray, hash, ifNull);
         }
     }
     else {
-        cout << "this is executed\n";
         // if file or input is empty
+        ifNull = true;
+        hashFunction(input, sqrtNumArray, hash, ifNull);
     }
 
-    decimalToHex(hash);
+    cout << "Generated hash: ";
+    decimalToHex(hash[0]);
+    decimalToHex(hash[1]);
+    decimalToHex(hash[2]);
+    decimalToHex(hash[3]);
+    return 0;
 }
