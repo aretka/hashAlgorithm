@@ -11,6 +11,9 @@ void decimalToHex (int hash) {
     ss << std::hex << hash;
     string res = (ss.str());
     cout << res;
+    if ( res.length() < 8)
+      cout << res[0];
+    cout << " ";
 }
 // hash function which creates 4 different 8hex hashes
 void hashFunction (string input, int sqrtNumArray[], int hash[], bool ifNull) {
