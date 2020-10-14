@@ -4,12 +4,13 @@
 
 This program calculates 32 HEX hash from any input it receives
 
-  This hash funtion creates four 8 HEX hashes
-  HashFunction (input, hash[], sqrtNumArray[], ifNull) {
-    initialize sum to zero
-    initialize multiplySum to one
-    initialize sumOfBoth to zero
-    initialize i to zero
+    This hash funtion creates four 8 HEX hashes
+    HashFunction (input, hash[], sqrtNumArray[], ifNull) {
+    
+      initialize sum to zero
+      initialize multiplySum to one
+      initialize sumOfBoth to zero
+      initialize i to zero
 
     if ifNull is true
       runing below displayed while once by replacing (int)input[i] value to 128
@@ -46,12 +47,14 @@ This program calculates 32 HEX hash from any input it receives
   }
 
   main () {
-    initialize 16 sqrtNumArray 
-    initialize ifnull and set value to false
-    set sqrtNumArray values by sqrt 16 different prime numbers below 100 and multiplying them by 1000000
-    initialize input and set its value to given input by reading it
-    if input is empty
-      ifNull = true
-    run hashFuntcion(input, hash[], sqrtNumArray[], ifNull)
-    run decimalToHex(hash)
+  
+      initialize 16 sqrtNumArray 
+      initialize ifnull and set value to false
+      set sqrtNumArray values by sqrt 16 different prime numbers below 100 and multiplying them by 1000000
+      initialize input and set its value to given input by reading it
+
+      if input is empty
+        ifNull = true
+      run hashFuntcion(input, hash[], sqrtNumArray[], ifNull)
+      run decimalToHex(hash)
   }
