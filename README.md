@@ -4,7 +4,7 @@
 
 This program calculates 32 HEX hash from any input it receives
 
-  This hash funtion creates four 8 HEX hashes 
+  This hash funtion creates four 8 HEX hashes
   HashFunction (input, hash[], sqrtNumArray[], ifNull) {
     initialize sum to zero
     initialize multiplySum to one
