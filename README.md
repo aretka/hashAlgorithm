@@ -58,3 +58,9 @@ This program calculates 32 HEX hash from any input it receives
       run hashFuntcion(input, hash[], sqrtNumArray[], ifNull)
       run decimalToHex(hash)
   }
+
+### Experiments with single charecter files
+|Test file name|Generated hash|
+|--------------|-------------|
+|testFile1_1.txt|1caa8450270147af17ea2c51672d5142|
+|testFile1_2.txt|290b8f63175d493b2c63f9ca4d58ac07|
