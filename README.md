@@ -59,8 +59,32 @@ This program calculates 32 HEX hash from any input it receives
       run decimalToHex(hash)
   }
 
-### Experiments with single charecter files
+### Eksperimentai su vieno simbolio failais
 |Test file name|Generated hash|
 |--------------|-------------|
 |testFile1_1.txt|1caa8450270147af17ea2c51672d5142|
 |testFile1_2.txt|290b8f63175d493b2c63f9ca4d58ac07|
+
+### Eksperimentai su skirtingais 1000 simbolių failais
+|Test file name|Generated hash|
+|--------------|-------------|
+|testFile2_1.txt|dc141b0bd1906882e8f524481a15373f|
+|testFile2_2.txt|b1d9fb2b4f164911f025b2c1dacd3d0d|
+
+### Eksperimentai su 1000 simbolių failais kurie skiriasi vienu simboliu
+|Test file name|Generated hash|
+|--------------|-------------|
+|testFile3_1.txt|6b9c96d097f7e78b6a35319644bf1d10|
+|testFile2_2.txt|6b9c96d0c378c38766577d06524b068f|
+
+### Eksperimentas su tuščiu failu
+|Test file name|Generated hash|
+|--------------|-------------|
+|testFile4.txt|ae04b2ca14c2f67747734a1122c28f41|
+
+2. Rezultatai:
+    * Įvestis gali būti bet kokio dydžio;
+    * Išvestis visada yra fiksuoto dydžio
+    * Maišos funkcija yra deterministinė, t. y., tam pačiam įvedimui (input'ui) išvedimas (output'as) visuomet yra tas pats.
+
+
