@@ -87,4 +87,8 @@ This program calculates 32 HEX hash from any input it receives
     * Išvestis visada yra fiksuoto dydžio
     * Maišos funkcija yra deterministinė, t. y., tam pačiam įvedimui (input'ui) išvedimas (output'as) visuomet yra tas pats.
 
+### 3. Eksperimentas su konstitucija.txt failu
+|Test file name|Generated hash|Time taken|
+|--------------|-------------|---------|
+|testFile4.txt|ae04b2ca14c2f67747734a1122c28f41|0.001s|
 
