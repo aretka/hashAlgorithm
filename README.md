@@ -93,10 +93,10 @@ This program calculates 32 HEX hash from any input it receives
 |konstitucija.txt|3eccd7f0889335316e8e592a348ecb12|0.001s|
 
 ### 5. Eksperimentai su 100000 simbolių porų:
-    * Su 25000 10 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
-    * Su 25000 100 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
-    * Su 25000 500 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
-    * Su 25000 1000 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
+* Su 25000 10 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
+* Su 25000 100 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
+* Su 25000 500 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
+* Su 25000 1000 simbolių ilgio skirtingais stringais nebuvo aptikta tokių pačių hash'ų porų
     
 ### 6. Hash'ų procentinio skirtingumo įvertinimas
 
