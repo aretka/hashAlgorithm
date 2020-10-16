@@ -11,8 +11,11 @@ void decimalToHex (int hash) {
     ss << std::hex << hash;
     string res = (ss.str());
     cout << res;
+    if ( res.length() < 8)
+      cout << res[0];
+    cout << " ";
 }
-
+// hash function which creates 4 different 8hex hashes
 void hashFunction (string input, int sqrtNumArray[], int hash[], bool ifNull) {
     int sum = 0, multiplySum=1, sumOfBoth=0;
     if(ifNull) {
@@ -65,7 +68,7 @@ void hashFunction (string input, int sqrtNumArray[], int hash[], bool ifNull) {
 
 int main(int argc, char* argv[])
 {
-    //Press 1 to the command line and enter data on your own or enter file name to read input from it
+    //Enter 1 to the command line and enter data on your own or enter file name only to read input from it
     int hash[4] ={1, 2, 3, 4};
     bool ifNull = false;
     string textFile, input;
@@ -77,7 +80,7 @@ int main(int argc, char* argv[])
     double sqrtNum;
     int sqrtNumArray[16];
     for (int i=0; i<16; i++) {
-        sqrtNum = sqrt(primeNumbers[i])*10000000;
+        sqrtNum = sqrt(primeNumbers[i])*1000000;
         sqrtNumArray[i] = sqrtNum;
     }
     if (argv[1][0] == '1' && argc >= 3) {
@@ -89,14 +92,26 @@ int main(int argc, char* argv[])
         //reading from file but file name has to be existing
         textFile = argv[1];
         inFile.open(textFile.c_str());
-        buffer << inFile.rdbuf();
-        while(!buffer.eof()) {
-            buffer >> input;
-            hashFunction(input, sqrtNumArray, hash, ifNull);
+        if (!inFile) {
+            std::cerr << textFile << "failed to open";
+        }
+        else {
+                // checking if file is empty
+            if (inFile.peek() == std::ifstream::traits_type::eof()) {
+                ifNull = true;
+                hashFunction(input, sqrtNumArray, hash, ifNull);
+            }
+            else {
+                buffer << inFile.rdbuf();
+                while(!buffer.eof()) {
+                    buffer >> input;
+                    hashFunction(input, sqrtNumArray, hash, ifNull);
+                }
+            }
         }
     }
     else {
-        // if file or input is empty
+        // if input is empty
         ifNull = true;
         hashFunction(input, sqrtNumArray, hash, ifNull);
     }
