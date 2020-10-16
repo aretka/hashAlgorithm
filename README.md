@@ -100,11 +100,19 @@ This program calculates 32 HEX hash from any input it receives
     
 ### 6. Hash'ų procentinio skirtingumo įvertinimas
 
-|Stringo ilgis|Maksimaliai skiriasi|Minimaliai skiriasi|Vidutinis procentinis skirtingumas|
+* Hex'ų lygmenyje
+|Stringo ilgis|Maksimalus|Minimalus|Vidutinis procentinis skirtingumas|
 |-------------|--------------------|-------------------|----------------------------------|
 |10|32|0|35.6071%|
 |100|32|0|26.9052%|
 |500|30|0|22.7916%|
 |1000|24|0|26.9164%|
 
+* Bitų lygmenyje
+|Stringo ilgis|Maksimalus|Minimalus|Vidutinis procentinis skirtingumas|
+|-------------|--------------------|-------------------|----------------------------------|
+|10|32|0|35.6071%|
+|100|32|0|26.9052%|
+|500|30|0|22.7916%|
+|1000|24|0|26.9164%|
 
