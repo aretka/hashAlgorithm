@@ -107,6 +107,3 @@ This program calculates 32 HEX hash from any input it receives
     |100|32|0|26.9052%|
     |500|30|0|22.7916%|
     |1000|24|0|26.9164%|
-
-* Bitų lygmenyje
-
