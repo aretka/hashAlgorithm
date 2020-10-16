@@ -108,10 +108,10 @@ This program calculates 32 HEX hash from any input it receives
     |500|30|0|22.7916%|
     |1000|24|0|26.9164%|
 ### Išvados:
-Trūkumai:
+* Trūkumai:
     * Buvo nustatyta kad nedaug skiriantys didelių stringų hasha'i kartais sutampa
     * Vidutinis procentinis skirtingumas gan nedidelis 100, 500 bei 1000 simbolių ilgių hash'uose
-Privalumai:
+* Privalumai:
     * Visada hash'as tokio paties ilgio
     * Hash funkcija greitai veikia
     * Funcija deterministinė
