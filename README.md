@@ -107,7 +107,7 @@ This program calculates 32 HEX hash from any input it receives
     |100|32|0|26.9052%|
     |500|30|0|22.7916%|
     |1000|24|0|26.9164%|
-### Išvados:
+### 7. Išvados:
 * Trūkumai:
     * Buvo nustatyta kad nedaug skiriantys didelių stringų hasha'i kartais sutampa
     * Vidutinis procentinis skirtingumas gan nedidelis 100, 500 bei 1000 simbolių ilgių hash'uose
